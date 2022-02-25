@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aireasy.co</title>
+
+	<!-- main css -->
+
+	<link rel="stylesheet" href="style.css">
+
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    
+
+	<!-- bootstrap 4 css -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+
+</head>
+<body>
+	
+	<div class="container-fluid">
+		
+		<div class="col-8 apartment">
+			
+			<h1 class="text-danger display-1 text-center">Info</h1>
+
+			<div class="row">
+				
+				<div id="apt1" class="col-4 card border-0 mx-auto bg-transparent p-4 mx-auto">
+					<img src="1.jpg" class="card-img d-block mx-auto" alt="">
+					<h2 class="text-left">Apartment</h2>
+					<p class="text-right text-muted h5">$850</p>
+				</div>
+				<div id="apt2" class="col-4 card border-0 mx-auto bg-transparent p-4 mx-auto">
+					<img src="1.jpg" class="card-img d-block mx-auto" alt="">
+					<h2 class="text-left">Apartment</h2>
+					<p class="text-right text-muted h5">$850</p>
+				</div>
+				<div id="apt3" class="col-4 card border-0 mx-auto bg-transparent p-4 mx-auto">
+					<img src="1.jpg" class="card-img d-block mx-auto" alt="">
+					<h2 class="text-left">Apartment</h2>
+					<p class="text-right text-muted h5">$850</p>
+				</div>
+				<div id="apt4" class="col-4 card border-0 mx-auto bg-transparent p-4 mx-auto">
+					<img src="1.jpg" class="card-img d-block mx-auto" alt="">
+					<h2 class="text-left">Apartment</h2>
+					<p class="text-right text-muted h5">$850</p>
+				</div>
+				<div id="apt5" class="col-4 card border-0 mx-auto bg-transparent p-4 mx-auto">
+					<img src="1.jpg" class="card-img d-block mx-auto" alt="">
+					<h2 class="text-left">Apartment</h2>
+					<p class="text-right text-muted h5">$850</p>
+				</div>
+				<div id="apt6" class="col-4 card border-0 mx-auto bg-transparent p-4 mx-auto">
+					<img src="1.jpg" class="card-img d-block mx-auto" alt="">
+					<h2 class="text-left">Apartment</h2>
+					<p class="text-right text-muted h5">$850</p>
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="map">
+			
+			<div id="map"></div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+	<!-- main js file -->
+	<script>
+
+var map = L.map('map').setView([23.815501, 90.412685], 11);
+
+var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(map);
+
+
+coords[[23.82159,90.42641],[23.7611,90.367],[23.7732,90.4137],[23.76175,90.38767],[23.75672,90.37357],[23.81967,90.44146]]
+
+rent = ['$850'.'$850'.'$850'.'$850'.'$850'.'$850']
+
+area = ["80 m2","80 m2","80 m2","80 m2","80 m2","80 m2"]
+
+rooms = [4, 4, 4, 4, 4, 4]
+
+//same as image name in at " "
+
+
+let l = coords. length;
+
+var apart1 = document.querySelector(#apt1);
+var apart2 = document.querySelector(#apt2);
+var apart3 = document.querySelector(#apt3);
+var apart4 = document.querySelector(#apt4);
+var apart5 = document.querySelector(#apt5);
+var apart6 = document.querySelector(#apt6);
+
+aparts = [apart1, apart2, apart3, apart4, apart5, apart6]
+
+for (let i = 0; i < 1; i++){
+
+	var pop = L.popup({
+		closeOnClick: true
+	}).setContent('<h5> Area: ' + area[i] + ' Room: ' + room[i] +  ' Rent: ' + rent[i] + '</h5>');
+
+	var marker = L.marker(coords[i]).addTo(map).bindPopup(pop);
+
+	var toollip = L.tooltip({
+		permanent: true
+	}).setContent(rent[i]);
+
+	marker.bindTooltip(toollip);
+
+	aparts[i].assEventListener("mouseover",()=> {
+		map.flyTo(coords[i],17);
+	})
+}
+
+	</script>
+
+	<!-- <script src="app.js" type="text/javascript"></script> -->
+
+	<!-- bootstrap 4 js -->
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
